@@ -37,7 +37,7 @@ const Order = () => {
     <div className="relative h-screen w-full">
       <div className="absolute inset-x-0 top-0 h-1/2 bg-blue-300 z-0"></div>
       <div className="absolute inset-x-0 bottom-0 h-1/2 bg-white z-0"></div>
-      <div className="absolute w-1/3 h-auto top-1/2 left-1/2 bg-white z-50 -translate-y-1/2 -translate-x-1/2 py-24 rounded-lg shadow-lg">
+      <div className="absolute top-1/2 left-1/2 bg-white z-50 -translate-y-1/2 -translate-x-1/2 rounded-none md:rounded-xl shadow-lg w-full md:w-2/3 lg:w-1/2 xl:w-1/3 h-screen md:h-auto py-4">
         <h1 className="text-2xl font-bold text-center">{title}</h1>
         <div className="mt-8 max-w-md mx-auto">
           {showResult ? (
