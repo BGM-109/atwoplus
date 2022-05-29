@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 
+const sizeList = Array(20)
+  .fill(220)
+  .map((e, i) => e + 5 * i);
+
 const Order = () => {
   const [result, setResult] = useState({
     name: "",
@@ -124,15 +128,28 @@ const Order = () => {
                 />
               </label>
               <label className="block">
-                <span className="text-gray-700">사이즈</span>
-                <input
+                <span className="text-gray-700">사이즈(JP)</span>
+
+                <select
                   required
                   type="text"
                   id="size"
                   name="size"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                  className="
+                  block
+                  w-full
+                  mt-1
+                  rounded-md
+                  border-gray-300
+                  shadow-sm
+                  focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50
+                "
                   placeholder=""
-                />
+                >
+                  {sizeList.map((size, i) => (
+                    <option key={i}>{size.toString()}</option>
+                  ))}
+                </select>
               </label>
               <button
                 type="submit"
