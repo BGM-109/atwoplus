@@ -1,4 +1,3 @@
-import Link from "next/link";
 import BrandLogo from "../components/BrandLogo";
 import Card from "../components/Card";
 import TopBar from "../components/TopBar";
@@ -19,12 +18,11 @@ export default function Home({ reps }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   // Call an external API endpoint to get posts.
+  const uri = `https://tranquil-ravine-04015.herokuapp.com/api/replicas?filters[sell_price][$notNull]=null&populate=*`;
   // You can use any data fetching library
-  const res = await fetch(
-    "https://tranquil-ravine-04015.herokuapp.com/api/replicas?populate=*"
-  );
+  const res = await fetch(uri);
   const { data } = await res.json();
 
   const filterdData = data.filter((data) => data.attributes.sell_price != null);
